@@ -315,12 +315,25 @@ layer {
   }
 }
 layer {
-  name: "conv2_1"
-  type: "Axpy"
+  name: "conv2_1/axpy/scale"
+  type: "Scale"
   bottom: "conv2_1_1x1_up"
   bottom: "conv2_1_1x1_increase"
+  top: "conv2_1/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv2_1/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv2_1/axpy/scale"
   bottom: "conv2_1_1x1_proj"
   top: "conv2_1"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv2_1/relu"
@@ -478,12 +491,25 @@ layer {
   top: "conv2_2_1x1_up"
 }
 layer {
-  name: "conv2_2"
-  type: "Axpy"
+  name: "conv2_2/axpy/scale"
+  type: "Scale"
   bottom: "conv2_2_1x1_up"
   bottom: "conv2_2_1x1_increase"
+  top: "conv2_2/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv2_2/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv2_2/axpy/scale"
   bottom: "conv2_1"
   top: "conv2_2"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv2_2/relu"
@@ -641,12 +667,25 @@ layer {
   top: "conv2_3_1x1_up"
 }
 layer {
-  name: "conv2_3"
-  type: "Axpy"
+  name: "conv2_3/axpy/scale"
+  type: "Scale"
   bottom: "conv2_3_1x1_up"
   bottom: "conv2_3_1x1_increase"
+  top: "conv2_3/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv2_3/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv2_3/axpy/scale"
   bottom: "conv2_2"
   top: "conv2_3"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv2_3/relu"
@@ -835,12 +874,25 @@ layer {
   }
 }
 layer {
-  name: "conv3_1"
-  type: "Axpy"
+  name: "conv3_1/axpy/scale"
+  type: "Scale"
   bottom: "conv3_1_1x1_up"
   bottom: "conv3_1_1x1_increase"
+  top: "conv3_1/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_1/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_1/axpy/scale"
   bottom: "conv3_1_1x1_proj"
   top: "conv3_1"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_1/relu"
@@ -998,12 +1050,25 @@ layer {
   top: "conv3_2_1x1_up"
 }
 layer {
-  name: "conv3_2"
-  type: "Axpy"
+  name: "conv3_2/axpy/scale"
+  type: "Scale"
   bottom: "conv3_2_1x1_up"
   bottom: "conv3_2_1x1_increase"
+  top: "conv3_2/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_2/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_2/axpy/scale"
   bottom: "conv3_1"
   top: "conv3_2"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_2/relu"
@@ -1161,12 +1226,25 @@ layer {
   top: "conv3_3_1x1_up"
 }
 layer {
-  name: "conv3_3"
-  type: "Axpy"
+  name: "conv3_3/axpy/scale"
+  type: "Scale"
   bottom: "conv3_3_1x1_up"
   bottom: "conv3_3_1x1_increase"
+  top: "conv3_3/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_3/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_3/axpy/scale"
   bottom: "conv3_2"
   top: "conv3_3"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_3/relu"
@@ -1324,12 +1402,25 @@ layer {
   top: "conv3_4_1x1_up"
 }
 layer {
-  name: "conv3_4"
-  type: "Axpy"
+  name: "conv3_4/axpy/scale"
+  type: "Scale"
   bottom: "conv3_4_1x1_up"
   bottom: "conv3_4_1x1_increase"
+  top: "conv3_4/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_4/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_4/axpy/scale"
   bottom: "conv3_3"
   top: "conv3_4"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_4/relu"
@@ -1487,12 +1578,25 @@ layer {
   top: "conv3_5_1x1_up"
 }
 layer {
-  name: "conv3_5"
-  type: "Axpy"
+  name: "conv3_5/axpy/scale"
+  type: "Scale"
   bottom: "conv3_5_1x1_up"
   bottom: "conv3_5_1x1_increase"
+  top: "conv3_5/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_5/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_5/axpy/scale"
   bottom: "conv3_4"
   top: "conv3_5"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_5/relu"
@@ -1650,12 +1754,25 @@ layer {
   top: "conv3_6_1x1_up"
 }
 layer {
-  name: "conv3_6"
-  type: "Axpy"
+  name: "conv3_6/axpy/scale"
+  type: "Scale"
   bottom: "conv3_6_1x1_up"
   bottom: "conv3_6_1x1_increase"
+  top: "conv3_6/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_6/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_6/axpy/scale"
   bottom: "conv3_5"
   top: "conv3_6"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_6/relu"
@@ -1813,12 +1930,25 @@ layer {
   top: "conv3_7_1x1_up"
 }
 layer {
-  name: "conv3_7"
-  type: "Axpy"
+  name: "conv3_7/axpy/scale"
+  type: "Scale"
   bottom: "conv3_7_1x1_up"
   bottom: "conv3_7_1x1_increase"
+  top: "conv3_7/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_7/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_7/axpy/scale"
   bottom: "conv3_6"
   top: "conv3_7"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_7/relu"
@@ -1976,12 +2106,25 @@ layer {
   top: "conv3_8_1x1_up"
 }
 layer {
-  name: "conv3_8"
-  type: "Axpy"
+  name: "conv3_8/axpy/scale"
+  type: "Scale"
   bottom: "conv3_8_1x1_up"
   bottom: "conv3_8_1x1_increase"
+  top: "conv3_8/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv3_8/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv3_8/axpy/scale"
   bottom: "conv3_7"
   top: "conv3_8"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv3_8/relu"
@@ -2170,12 +2313,25 @@ layer {
   }
 }
 layer {
-  name: "conv4_1"
-  type: "Axpy"
+  name: "conv4_1/axpy/scale"
+  type: "Scale"
   bottom: "conv4_1_1x1_up"
   bottom: "conv4_1_1x1_increase"
+  top: "conv4_1/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_1/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_1/axpy/scale"
   bottom: "conv4_1_1x1_proj"
   top: "conv4_1"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_1/relu"
@@ -2333,12 +2489,25 @@ layer {
   top: "conv4_2_1x1_up"
 }
 layer {
-  name: "conv4_2"
-  type: "Axpy"
+  name: "conv4_2/axpy/scale"
+  type: "Scale"
   bottom: "conv4_2_1x1_up"
   bottom: "conv4_2_1x1_increase"
+  top: "conv4_2/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_2/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_2/axpy/scale"
   bottom: "conv4_1"
   top: "conv4_2"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_2/relu"
@@ -2496,12 +2665,25 @@ layer {
   top: "conv4_3_1x1_up"
 }
 layer {
-  name: "conv4_3"
-  type: "Axpy"
+  name: "conv4_3/axpy/scale"
+  type: "Scale"
   bottom: "conv4_3_1x1_up"
   bottom: "conv4_3_1x1_increase"
+  top: "conv4_3/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_3/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_3/axpy/scale"
   bottom: "conv4_2"
   top: "conv4_3"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_3/relu"
@@ -2659,12 +2841,25 @@ layer {
   top: "conv4_4_1x1_up"
 }
 layer {
-  name: "conv4_4"
-  type: "Axpy"
+  name: "conv4_4/axpy/scale"
+  type: "Scale"
   bottom: "conv4_4_1x1_up"
   bottom: "conv4_4_1x1_increase"
+  top: "conv4_4/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_4/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_4/axpy/scale"
   bottom: "conv4_3"
   top: "conv4_4"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_4/relu"
@@ -2822,12 +3017,25 @@ layer {
   top: "conv4_5_1x1_up"
 }
 layer {
-  name: "conv4_5"
-  type: "Axpy"
+  name: "conv4_5/axpy/scale"
+  type: "Scale"
   bottom: "conv4_5_1x1_up"
   bottom: "conv4_5_1x1_increase"
+  top: "conv4_5/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_5/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_5/axpy/scale"
   bottom: "conv4_4"
   top: "conv4_5"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_5/relu"
@@ -2985,12 +3193,25 @@ layer {
   top: "conv4_6_1x1_up"
 }
 layer {
-  name: "conv4_6"
-  type: "Axpy"
+  name: "conv4_6/axpy/scale"
+  type: "Scale"
   bottom: "conv4_6_1x1_up"
   bottom: "conv4_6_1x1_increase"
+  top: "conv4_6/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_6/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_6/axpy/scale"
   bottom: "conv4_5"
   top: "conv4_6"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_6/relu"
@@ -3148,12 +3369,25 @@ layer {
   top: "conv4_7_1x1_up"
 }
 layer {
-  name: "conv4_7"
-  type: "Axpy"
+  name: "conv4_7/axpy/scale"
+  type: "Scale"
   bottom: "conv4_7_1x1_up"
   bottom: "conv4_7_1x1_increase"
+  top: "conv4_7/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_7/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_7/axpy/scale"
   bottom: "conv4_6"
   top: "conv4_7"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_7/relu"
@@ -3311,12 +3545,25 @@ layer {
   top: "conv4_8_1x1_up"
 }
 layer {
-  name: "conv4_8"
-  type: "Axpy"
+  name: "conv4_8/axpy/scale"
+  type: "Scale"
   bottom: "conv4_8_1x1_up"
   bottom: "conv4_8_1x1_increase"
+  top: "conv4_8/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_8/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_8/axpy/scale"
   bottom: "conv4_7"
   top: "conv4_8"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_8/relu"
@@ -3474,12 +3721,25 @@ layer {
   top: "conv4_9_1x1_up"
 }
 layer {
-  name: "conv4_9"
-  type: "Axpy"
+  name: "conv4_9/axpy/scale"
+  type: "Scale"
   bottom: "conv4_9_1x1_up"
   bottom: "conv4_9_1x1_increase"
+  top: "conv4_9/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_9/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_9/axpy/scale"
   bottom: "conv4_8"
   top: "conv4_9"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_9/relu"
@@ -3637,12 +3897,25 @@ layer {
   top: "conv4_10_1x1_up"
 }
 layer {
-  name: "conv4_10"
-  type: "Axpy"
+  name: "conv4_10/axpy/scale"
+  type: "Scale"
   bottom: "conv4_10_1x1_up"
   bottom: "conv4_10_1x1_increase"
+  top: "conv4_10/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_10/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_10/axpy/scale"
   bottom: "conv4_9"
   top: "conv4_10"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_10/relu"
@@ -3800,12 +4073,25 @@ layer {
   top: "conv4_11_1x1_up"
 }
 layer {
-  name: "conv4_11"
-  type: "Axpy"
+  name: "conv4_11/axpy/scale"
+  type: "Scale"
   bottom: "conv4_11_1x1_up"
   bottom: "conv4_11_1x1_increase"
+  top: "conv4_11/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_11/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_11/axpy/scale"
   bottom: "conv4_10"
   top: "conv4_11"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_11/relu"
@@ -3963,12 +4249,25 @@ layer {
   top: "conv4_12_1x1_up"
 }
 layer {
-  name: "conv4_12"
-  type: "Axpy"
+  name: "conv4_12/axpy/scale"
+  type: "Scale"
   bottom: "conv4_12_1x1_up"
   bottom: "conv4_12_1x1_increase"
+  top: "conv4_12/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_12/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_12/axpy/scale"
   bottom: "conv4_11"
   top: "conv4_12"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_12/relu"
@@ -4126,12 +4425,25 @@ layer {
   top: "conv4_13_1x1_up"
 }
 layer {
-  name: "conv4_13"
-  type: "Axpy"
+  name: "conv4_13/axpy/scale"
+  type: "Scale"
   bottom: "conv4_13_1x1_up"
   bottom: "conv4_13_1x1_increase"
+  top: "conv4_13/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_13/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_13/axpy/scale"
   bottom: "conv4_12"
   top: "conv4_13"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_13/relu"
@@ -4289,12 +4601,25 @@ layer {
   top: "conv4_14_1x1_up"
 }
 layer {
-  name: "conv4_14"
-  type: "Axpy"
+  name: "conv4_14/axpy/scale"
+  type: "Scale"
   bottom: "conv4_14_1x1_up"
   bottom: "conv4_14_1x1_increase"
+  top: "conv4_14/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_14/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_14/axpy/scale"
   bottom: "conv4_13"
   top: "conv4_14"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_14/relu"
@@ -4452,12 +4777,25 @@ layer {
   top: "conv4_15_1x1_up"
 }
 layer {
-  name: "conv4_15"
-  type: "Axpy"
+  name: "conv4_15/axpy/scale"
+  type: "Scale"
   bottom: "conv4_15_1x1_up"
   bottom: "conv4_15_1x1_increase"
+  top: "conv4_15/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_15/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_15/axpy/scale"
   bottom: "conv4_14"
   top: "conv4_15"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_15/relu"
@@ -4615,12 +4953,25 @@ layer {
   top: "conv4_16_1x1_up"
 }
 layer {
-  name: "conv4_16"
-  type: "Axpy"
+  name: "conv4_16/axpy/scale"
+  type: "Scale"
   bottom: "conv4_16_1x1_up"
   bottom: "conv4_16_1x1_increase"
+  top: "conv4_16/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_16/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_16/axpy/scale"
   bottom: "conv4_15"
   top: "conv4_16"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_16/relu"
@@ -4778,12 +5129,25 @@ layer {
   top: "conv4_17_1x1_up"
 }
 layer {
-  name: "conv4_17"
-  type: "Axpy"
+  name: "conv4_17/axpy/scale"
+  type: "Scale"
   bottom: "conv4_17_1x1_up"
   bottom: "conv4_17_1x1_increase"
+  top: "conv4_17/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_17/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_17/axpy/scale"
   bottom: "conv4_16"
   top: "conv4_17"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_17/relu"
@@ -4941,12 +5305,25 @@ layer {
   top: "conv4_18_1x1_up"
 }
 layer {
-  name: "conv4_18"
-  type: "Axpy"
+  name: "conv4_18/axpy/scale"
+  type: "Scale"
   bottom: "conv4_18_1x1_up"
   bottom: "conv4_18_1x1_increase"
+  top: "conv4_18/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_18/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_18/axpy/scale"
   bottom: "conv4_17"
   top: "conv4_18"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_18/relu"
@@ -5104,12 +5481,25 @@ layer {
   top: "conv4_19_1x1_up"
 }
 layer {
-  name: "conv4_19"
-  type: "Axpy"
+  name: "conv4_19/axpy/scale"
+  type: "Scale"
   bottom: "conv4_19_1x1_up"
   bottom: "conv4_19_1x1_increase"
+  top: "conv4_19/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_19/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_19/axpy/scale"
   bottom: "conv4_18"
   top: "conv4_19"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_19/relu"
@@ -5267,12 +5657,25 @@ layer {
   top: "conv4_20_1x1_up"
 }
 layer {
-  name: "conv4_20"
-  type: "Axpy"
+  name: "conv4_20/axpy/scale"
+  type: "Scale"
   bottom: "conv4_20_1x1_up"
   bottom: "conv4_20_1x1_increase"
+  top: "conv4_20/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_20/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_20/axpy/scale"
   bottom: "conv4_19"
   top: "conv4_20"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_20/relu"
@@ -5430,12 +5833,25 @@ layer {
   top: "conv4_21_1x1_up"
 }
 layer {
-  name: "conv4_21"
-  type: "Axpy"
+  name: "conv4_21/axpy/scale"
+  type: "Scale"
   bottom: "conv4_21_1x1_up"
   bottom: "conv4_21_1x1_increase"
+  top: "conv4_21/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_21/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_21/axpy/scale"
   bottom: "conv4_20"
   top: "conv4_21"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_21/relu"
@@ -5593,12 +6009,25 @@ layer {
   top: "conv4_22_1x1_up"
 }
 layer {
-  name: "conv4_22"
-  type: "Axpy"
+  name: "conv4_22/axpy/scale"
+  type: "Scale"
   bottom: "conv4_22_1x1_up"
   bottom: "conv4_22_1x1_increase"
+  top: "conv4_22/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_22/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_22/axpy/scale"
   bottom: "conv4_21"
   top: "conv4_22"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_22/relu"
@@ -5756,12 +6185,25 @@ layer {
   top: "conv4_23_1x1_up"
 }
 layer {
-  name: "conv4_23"
-  type: "Axpy"
+  name: "conv4_23/axpy/scale"
+  type: "Scale"
   bottom: "conv4_23_1x1_up"
   bottom: "conv4_23_1x1_increase"
+  top: "conv4_23/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_23/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_23/axpy/scale"
   bottom: "conv4_22"
   top: "conv4_23"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_23/relu"
@@ -5919,12 +6361,25 @@ layer {
   top: "conv4_24_1x1_up"
 }
 layer {
-  name: "conv4_24"
-  type: "Axpy"
+  name: "conv4_24/axpy/scale"
+  type: "Scale"
   bottom: "conv4_24_1x1_up"
   bottom: "conv4_24_1x1_increase"
+  top: "conv4_24/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_24/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_24/axpy/scale"
   bottom: "conv4_23"
   top: "conv4_24"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_24/relu"
@@ -6082,12 +6537,25 @@ layer {
   top: "conv4_25_1x1_up"
 }
 layer {
-  name: "conv4_25"
-  type: "Axpy"
+  name: "conv4_25/axpy/scale"
+  type: "Scale"
   bottom: "conv4_25_1x1_up"
   bottom: "conv4_25_1x1_increase"
+  top: "conv4_25/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_25/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_25/axpy/scale"
   bottom: "conv4_24"
   top: "conv4_25"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_25/relu"
@@ -6245,12 +6713,25 @@ layer {
   top: "conv4_26_1x1_up"
 }
 layer {
-  name: "conv4_26"
-  type: "Axpy"
+  name: "conv4_26/axpy/scale"
+  type: "Scale"
   bottom: "conv4_26_1x1_up"
   bottom: "conv4_26_1x1_increase"
+  top: "conv4_26/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_26/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_26/axpy/scale"
   bottom: "conv4_25"
   top: "conv4_26"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_26/relu"
@@ -6408,12 +6889,25 @@ layer {
   top: "conv4_27_1x1_up"
 }
 layer {
-  name: "conv4_27"
-  type: "Axpy"
+  name: "conv4_27/axpy/scale"
+  type: "Scale"
   bottom: "conv4_27_1x1_up"
   bottom: "conv4_27_1x1_increase"
+  top: "conv4_27/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_27/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_27/axpy/scale"
   bottom: "conv4_26"
   top: "conv4_27"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_27/relu"
@@ -6571,12 +7065,25 @@ layer {
   top: "conv4_28_1x1_up"
 }
 layer {
-  name: "conv4_28"
-  type: "Axpy"
+  name: "conv4_28/axpy/scale"
+  type: "Scale"
   bottom: "conv4_28_1x1_up"
   bottom: "conv4_28_1x1_increase"
+  top: "conv4_28/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_28/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_28/axpy/scale"
   bottom: "conv4_27"
   top: "conv4_28"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_28/relu"
@@ -6734,12 +7241,25 @@ layer {
   top: "conv4_29_1x1_up"
 }
 layer {
-  name: "conv4_29"
-  type: "Axpy"
+  name: "conv4_29/axpy/scale"
+  type: "Scale"
   bottom: "conv4_29_1x1_up"
   bottom: "conv4_29_1x1_increase"
+  top: "conv4_29/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_29/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_29/axpy/scale"
   bottom: "conv4_28"
   top: "conv4_29"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_29/relu"
@@ -6897,12 +7417,25 @@ layer {
   top: "conv4_30_1x1_up"
 }
 layer {
-  name: "conv4_30"
-  type: "Axpy"
+  name: "conv4_30/axpy/scale"
+  type: "Scale"
   bottom: "conv4_30_1x1_up"
   bottom: "conv4_30_1x1_increase"
+  top: "conv4_30/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_30/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_30/axpy/scale"
   bottom: "conv4_29"
   top: "conv4_30"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_30/relu"
@@ -7060,12 +7593,25 @@ layer {
   top: "conv4_31_1x1_up"
 }
 layer {
-  name: "conv4_31"
-  type: "Axpy"
+  name: "conv4_31/axpy/scale"
+  type: "Scale"
   bottom: "conv4_31_1x1_up"
   bottom: "conv4_31_1x1_increase"
+  top: "conv4_31/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_31/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_31/axpy/scale"
   bottom: "conv4_30"
   top: "conv4_31"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_31/relu"
@@ -7223,12 +7769,25 @@ layer {
   top: "conv4_32_1x1_up"
 }
 layer {
-  name: "conv4_32"
-  type: "Axpy"
+  name: "conv4_32/axpy/scale"
+  type: "Scale"
   bottom: "conv4_32_1x1_up"
   bottom: "conv4_32_1x1_increase"
+  top: "conv4_32/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_32/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_32/axpy/scale"
   bottom: "conv4_31"
   top: "conv4_32"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_32/relu"
@@ -7386,12 +7945,25 @@ layer {
   top: "conv4_33_1x1_up"
 }
 layer {
-  name: "conv4_33"
-  type: "Axpy"
+  name: "conv4_33/axpy/scale"
+  type: "Scale"
   bottom: "conv4_33_1x1_up"
   bottom: "conv4_33_1x1_increase"
+  top: "conv4_33/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_33/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_33/axpy/scale"
   bottom: "conv4_32"
   top: "conv4_33"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_33/relu"
@@ -7549,12 +8121,25 @@ layer {
   top: "conv4_34_1x1_up"
 }
 layer {
-  name: "conv4_34"
-  type: "Axpy"
+  name: "conv4_34/axpy/scale"
+  type: "Scale"
   bottom: "conv4_34_1x1_up"
   bottom: "conv4_34_1x1_increase"
+  top: "conv4_34/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_34/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_34/axpy/scale"
   bottom: "conv4_33"
   top: "conv4_34"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_34/relu"
@@ -7712,12 +8297,25 @@ layer {
   top: "conv4_35_1x1_up"
 }
 layer {
-  name: "conv4_35"
-  type: "Axpy"
+  name: "conv4_35/axpy/scale"
+  type: "Scale"
   bottom: "conv4_35_1x1_up"
   bottom: "conv4_35_1x1_increase"
+  top: "conv4_35/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_35/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_35/axpy/scale"
   bottom: "conv4_34"
   top: "conv4_35"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_35/relu"
@@ -7875,12 +8473,25 @@ layer {
   top: "conv4_36_1x1_up"
 }
 layer {
-  name: "conv4_36"
-  type: "Axpy"
+  name: "conv4_36/axpy/scale"
+  type: "Scale"
   bottom: "conv4_36_1x1_up"
   bottom: "conv4_36_1x1_increase"
+  top: "conv4_36/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv4_36/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv4_36/axpy/scale"
   bottom: "conv4_35"
   top: "conv4_36"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv4_36/relu"
@@ -8069,12 +8680,25 @@ layer {
   }
 }
 layer {
-  name: "conv5_1"
-  type: "Axpy"
+  name: "conv5_1/axpy/scale"
+  type: "Scale"
   bottom: "conv5_1_1x1_up"
   bottom: "conv5_1_1x1_increase"
+  top: "conv5_1/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv5_1/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv5_1/axpy/scale"
   bottom: "conv5_1_1x1_proj"
   top: "conv5_1"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv5_1/relu"
@@ -8232,12 +8856,25 @@ layer {
   top: "conv5_2_1x1_up"
 }
 layer {
-  name: "conv5_2"
-  type: "Axpy"
+  name: "conv5_2/axpy/scale"
+  type: "Scale"
   bottom: "conv5_2_1x1_up"
   bottom: "conv5_2_1x1_increase"
+  top: "conv5_2/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv5_2/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv5_2/axpy/scale"
   bottom: "conv5_1"
   top: "conv5_2"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv5_2/relu"
@@ -8395,12 +9032,25 @@ layer {
   top: "conv5_3_1x1_up"
 }
 layer {
-  name: "conv5_3"
-  type: "Axpy"
+  name: "conv5_3/axpy/scale"
+  type: "Scale"
   bottom: "conv5_3_1x1_up"
   bottom: "conv5_3_1x1_increase"
+  top: "conv5_3/axpy/scale"
+  scale_param {
+    axis: 0
+    bias_term: false
+  }
+}
+layer {
+  name: "conv5_3/axpy/eltwise"
+  type: "Eltwise"
+  bottom: "conv5_3/axpy/scale"
   bottom: "conv5_2"
   top: "conv5_3"
+  eltwise_param {
+    operation: SUM
+  }
 }
 layer {
   name: "conv5_3/relu"
