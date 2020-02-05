@@ -240,10 +240,16 @@ layer {
   }
 }
 layer {
+  name: "conv2_1_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv2_1_1x1_up"
+  top: "conv2_1_1x1_up_flatten"
+}
+layer {
   name: "conv2_1/axpy/scale"
   type: "Scale"
   bottom: "conv2_1_1x1_increase"
-  bottom: "conv2_1_1x1_up"
+  bottom: "conv2_1_1x1_up_flatten"
   top: "conv2_1/axpy/scale"
   scale_param {
     axis: 0
@@ -415,10 +421,16 @@ layer {
   top: "conv2_2_1x1_up"
 }
 layer {
+  name: "conv2_2_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv2_2_1x1_up"
+  top: "conv2_2_1x1_up_flatten"
+}
+layer {
   name: "conv2_2/axpy/scale"
   type: "Scale"
   bottom: "conv2_2_1x1_increase"
-  bottom: "conv2_2_1x1_up"
+  bottom: "conv2_2_1x1_up_flatten"
   top: "conv2_2/axpy/scale"
   scale_param {
     axis: 0
@@ -590,10 +602,16 @@ layer {
   top: "conv2_3_1x1_up"
 }
 layer {
+  name: "conv2_3_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv2_3_1x1_up"
+  top: "conv2_3_1x1_up_flatten"
+}
+layer {
   name: "conv2_3/axpy/scale"
   type: "Scale"
   bottom: "conv2_3_1x1_increase"
-  bottom: "conv2_3_1x1_up"
+  bottom: "conv2_3_1x1_up_flatten"
   top: "conv2_3/axpy/scale"
   scale_param {
     axis: 0
@@ -795,10 +813,16 @@ layer {
   }
 }
 layer {
+  name: "conv3_1_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv3_1_1x1_up"
+  top: "conv3_1_1x1_up_flatten"
+}
+layer {
   name: "conv3_1/axpy/scale"
   type: "Scale"
   bottom: "conv3_1_1x1_increase"
-  bottom: "conv3_1_1x1_up"
+  bottom: "conv3_1_1x1_up_flatten"
   top: "conv3_1/axpy/scale"
   scale_param {
     axis: 0
@@ -970,10 +994,16 @@ layer {
   top: "conv3_2_1x1_up"
 }
 layer {
+  name: "conv3_2_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv3_2_1x1_up"
+  top: "conv3_2_1x1_up_flatten"
+}
+layer {
   name: "conv3_2/axpy/scale"
   type: "Scale"
   bottom: "conv3_2_1x1_increase"
-  bottom: "conv3_2_1x1_up"
+  bottom: "conv3_2_1x1_up_flatten"
   top: "conv3_2/axpy/scale"
   scale_param {
     axis: 0
@@ -1145,10 +1175,16 @@ layer {
   top: "conv3_3_1x1_up"
 }
 layer {
+  name: "conv3_3_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv3_3_1x1_up"
+  top: "conv3_3_1x1_up_flatten"
+}
+layer {
   name: "conv3_3/axpy/scale"
   type: "Scale"
   bottom: "conv3_3_1x1_increase"
-  bottom: "conv3_3_1x1_up"
+  bottom: "conv3_3_1x1_up_flatten"
   top: "conv3_3/axpy/scale"
   scale_param {
     axis: 0
@@ -1320,10 +1356,16 @@ layer {
   top: "conv3_4_1x1_up"
 }
 layer {
+  name: "conv3_4_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv3_4_1x1_up"
+  top: "conv3_4_1x1_up_flatten"
+}
+layer {
   name: "conv3_4/axpy/scale"
   type: "Scale"
   bottom: "conv3_4_1x1_increase"
-  bottom: "conv3_4_1x1_up"
+  bottom: "conv3_4_1x1_up_flatten"
   top: "conv3_4/axpy/scale"
   scale_param {
     axis: 0
@@ -1525,10 +1567,16 @@ layer {
   }
 }
 layer {
+  name: "conv4_1_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_1_1x1_up"
+  top: "conv4_1_1x1_up_flatten"
+}
+layer {
   name: "conv4_1/axpy/scale"
   type: "Scale"
   bottom: "conv4_1_1x1_increase"
-  bottom: "conv4_1_1x1_up"
+  bottom: "conv4_1_1x1_up_flatten"
   top: "conv4_1/axpy/scale"
   scale_param {
     axis: 0
@@ -1700,10 +1748,16 @@ layer {
   top: "conv4_2_1x1_up"
 }
 layer {
+  name: "conv4_2_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_2_1x1_up"
+  top: "conv4_2_1x1_up_flatten"
+}
+layer {
   name: "conv4_2/axpy/scale"
   type: "Scale"
   bottom: "conv4_2_1x1_increase"
-  bottom: "conv4_2_1x1_up"
+  bottom: "conv4_2_1x1_up_flatten"
   top: "conv4_2/axpy/scale"
   scale_param {
     axis: 0
@@ -1875,10 +1929,16 @@ layer {
   top: "conv4_3_1x1_up"
 }
 layer {
+  name: "conv4_3_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_3_1x1_up"
+  top: "conv4_3_1x1_up_flatten"
+}
+layer {
   name: "conv4_3/axpy/scale"
   type: "Scale"
   bottom: "conv4_3_1x1_increase"
-  bottom: "conv4_3_1x1_up"
+  bottom: "conv4_3_1x1_up_flatten"
   top: "conv4_3/axpy/scale"
   scale_param {
     axis: 0
@@ -2050,10 +2110,16 @@ layer {
   top: "conv4_4_1x1_up"
 }
 layer {
+  name: "conv4_4_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_4_1x1_up"
+  top: "conv4_4_1x1_up_flatten"
+}
+layer {
   name: "conv4_4/axpy/scale"
   type: "Scale"
   bottom: "conv4_4_1x1_increase"
-  bottom: "conv4_4_1x1_up"
+  bottom: "conv4_4_1x1_up_flatten"
   top: "conv4_4/axpy/scale"
   scale_param {
     axis: 0
@@ -2225,10 +2291,16 @@ layer {
   top: "conv4_5_1x1_up"
 }
 layer {
+  name: "conv4_5_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_5_1x1_up"
+  top: "conv4_5_1x1_up_flatten"
+}
+layer {
   name: "conv4_5/axpy/scale"
   type: "Scale"
   bottom: "conv4_5_1x1_increase"
-  bottom: "conv4_5_1x1_up"
+  bottom: "conv4_5_1x1_up_flatten"
   top: "conv4_5/axpy/scale"
   scale_param {
     axis: 0
@@ -2400,10 +2472,16 @@ layer {
   top: "conv4_6_1x1_up"
 }
 layer {
+  name: "conv4_6_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv4_6_1x1_up"
+  top: "conv4_6_1x1_up_flatten"
+}
+layer {
   name: "conv4_6/axpy/scale"
   type: "Scale"
   bottom: "conv4_6_1x1_increase"
-  bottom: "conv4_6_1x1_up"
+  bottom: "conv4_6_1x1_up_flatten"
   top: "conv4_6/axpy/scale"
   scale_param {
     axis: 0
@@ -2605,10 +2683,16 @@ layer {
   }
 }
 layer {
+  name: "conv5_1_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv5_1_1x1_up"
+  top: "conv5_1_1x1_up_flatten"
+}
+layer {
   name: "conv5_1/axpy/scale"
   type: "Scale"
   bottom: "conv5_1_1x1_increase"
-  bottom: "conv5_1_1x1_up"
+  bottom: "conv5_1_1x1_up_flatten"
   top: "conv5_1/axpy/scale"
   scale_param {
     axis: 0
@@ -2780,10 +2864,16 @@ layer {
   top: "conv5_2_1x1_up"
 }
 layer {
+  name: "conv5_2_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv5_2_1x1_up"
+  top: "conv5_2_1x1_up_flatten"
+}
+layer {
   name: "conv5_2/axpy/scale"
   type: "Scale"
   bottom: "conv5_2_1x1_increase"
-  bottom: "conv5_2_1x1_up"
+  bottom: "conv5_2_1x1_up_flatten"
   top: "conv5_2/axpy/scale"
   scale_param {
     axis: 0
@@ -2955,10 +3045,16 @@ layer {
   top: "conv5_3_1x1_up"
 }
 layer {
+  name: "conv5_3_1x1_up_flatten"
+  type: "Flatten"
+  bottom: "conv5_3_1x1_up"
+  top: "conv5_3_1x1_up_flatten"
+}
+layer {
   name: "conv5_3/axpy/scale"
   type: "Scale"
   bottom: "conv5_3_1x1_increase"
-  bottom: "conv5_3_1x1_up"
+  bottom: "conv5_3_1x1_up_flatten"
   top: "conv5_3/axpy/scale"
   scale_param {
     axis: 0
